@@ -1,0 +1,71 @@
+goroutine 1 [running]:
+main.main()
+	/app/main.go:15 +0x1a2
+runtime.main()
+	/usr/local/go/src/runtime/proc.go:267 +0x207
+
+goroutine 6 [IO wait]:
+net/http.(*connReader).Read(0xc0001a6000, {0xc0001c8000, 0x1000, 0x1000})
+	/usr/local/go/src/net/http/server.go:786 +0x158
+bufio.(*Reader).fill(0xc0001a4300)
+	/usr/local/go/src/bufio/bufio.go:106 +0x103
+bufio.(*Reader).ReadSlice(0xc0001a4300, 0xa)
+	/usr/local/go/src/bufio/bufio.go:372 +0x1f
+net/http.(*conn).serve(0xc0001b2000, {0x10a5e00, 0xc00019e0e0})
+	/usr/local/go/src/net/http/server.go:2070 +0x1456
+
+goroutine 7 [IO wait]:
+net/http.(*connReader).Read(0xc0001a6100, {0xc0001c9000, 0x1000, 0x1000})
+	/usr/local/go/src/net/http/server.go:786 +0x158
+bufio.(*Reader).fill(0xc0001a4360)
+	/usr/local/go/src/bufio/bufio.go:106 +0x103
+bufio.(*Reader).ReadSlice(0xc0001a4360, 0xa)
+	/usr/local/go/src/bufio/bufio.go:372 +0x1f
+net/http.(*conn).serve(0xc0001b2100, {0x10a5e00, 0xc00019e1a0})
+	/usr/local/go/src/net/http/server.go:2070 +0x1456
+
+goroutine 8 [IO wait]:
+net/http.(*connReader).Read(0xc0001a6200, {0xc0001ca000, 0x1000, 0x1000})
+	/usr/local/go/src/net/http/server.go:786 +0x158
+bufio.(*Reader).fill(0xc0001a43c0)
+	/usr/local/go/src/bufio/bufio.go:106 +0x103
+bufio.(*Reader).ReadSlice(0xc0001a43c0, 0xa)
+	/usr/local/go/src/bufio/bufio.go:372 +0x1f
+net/http.(*conn).serve(0xc0001b2200, {0x10a5e00, 0xc00019e260})
+	/usr/local/go/src/net/http/server.go:2070 +0x1456
+
+goroutine 9 [chan receive]:
+main.worker(0xc000100060)
+	/app/worker.go:28 +0x56
+created by main.startWorkers in goroutine 1
+	/app/main.go:45 +0x85
+
+goroutine 10 [chan receive]:
+main.worker(0xc000100060)
+	/app/worker.go:28 +0x56
+created by main.startWorkers in goroutine 1
+	/app/main.go:45 +0x85
+
+goroutine 11 [chan receive]:
+main.worker(0xc000100060)
+	/app/worker.go:28 +0x56
+created by main.startWorkers in goroutine 1
+	/app/main.go:45 +0x85
+
+goroutine 12 [chan receive]:
+main.worker(0xc000100060)
+	/app/worker.go:28 +0x56
+created by main.startWorkers in goroutine 1
+	/app/main.go:45 +0x85
+
+goroutine 13 [select]:
+database/sql.(*DB).connectionOpener(0xc0000a2000)
+	/usr/local/go/src/database/sql/sql.go:1234 +0x56
+
+goroutine 14 [select]:
+database/sql.(*DB).connectionOpener(0xc0000a2000)
+	/usr/local/go/src/database/sql/sql.go:1234 +0x56
+
+goroutine 15 [semacquire]:
+sync.runtime_Semacquire(0xc0000ba000)
+	/usr/local/go/src/sync/mutex.go:42 +0x23
