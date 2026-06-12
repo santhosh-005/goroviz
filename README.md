@@ -1,10 +1,19 @@
-# 🔍 Goroviz
+# Goroviz
 
-**htop for Go goroutines** — A lightweight TUI tool that visualizes goroutine behavior from Go applications using pprof data.
+A lightweight TUI tool that visualizes goroutine behavior from Go applications using pprof data. 
 
-Just point it at your running Go app — Goroviz fetches the goroutine dump, groups identical stacks, and lets you explore them interactively.
+Just point it at your running Go app - Goroviz fetches the goroutine dump, groups identical stacks, and lets you explore them interactively.
 
-## ✨ Features
+## Walk Through 
+
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/31d870c7-6ec9-4b44-965c-2227bdaad733"
+    width="600"
+  />
+</p>
+
+## Features
 
 - **One-command attach** — `goroviz attach localhost:6060` and you're done
 - **Smart Grouping** — Automatically groups identical goroutines by stack signature
@@ -13,13 +22,13 @@ Just point it at your running Go app — Goroviz fetches the goroutine dump, gro
 - **Editor Integration** — Jump to source code directly from the TUI (VS Code, GoLand, Vim, Neovim, and more)
 - **Plain Text Mode** — Non-interactive output for piping and scripting
 
-## 📦 Installation
+## Installation
 
 ```bash
 go install github.com/santhosh-005/goroviz/cmd/goroviz@latest
 ```
 
-## 🚀 Usage
+## Usage
 
 ### 1. Enable pprof in your Go app (one-time setup)
 
@@ -60,7 +69,7 @@ goroviz attach localhost:6060 --text
 goroviz dump goroutines.txt --text
 ```
 
-## ⌨️ Keyboard Shortcuts
+## Keyboard Shortcuts
 
 ### List View
 
@@ -83,7 +92,7 @@ goroviz dump goroutines.txt --text
 | `Esc` / `Backspace` | Back to list |
 | `q` / `Ctrl+C` | Quit |
 
-## 🛠 Editor Support
+## Editor Support
 
 Goroviz auto-detects your editor from `$EDITOR`, `$VISUAL`, or by searching your PATH:
 
@@ -99,7 +108,7 @@ Goroviz auto-detects your editor from `$EDITOR`, `$VISUAL`, or by searching your
 | Nano | `nano` |
 | Emacs | `emacs` |
 
-## 📐 Architecture
+## Architecture
 
 ```
 goroviz/
@@ -113,6 +122,6 @@ goroviz/
 └── testdata/         # Sample goroutine dumps + demo app
 ```
 
-## 📄 License
+## License
 
 [MIT](LICENSE)
