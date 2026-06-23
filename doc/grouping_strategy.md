@@ -1,17 +1,17 @@
-# 🔍 Goroutine Grouping Strategy
+# Goroutine Grouping Strategy
 
 This document explains the core grouping strategy used by Goroviz to cluster thousands of concurrent goroutines into a clean, human-readable terminal dashboard.
 
 ---
 
-## 🗺️ The Goal of Grouping
+## The Goal of Grouping
 When running a high-traffic Go application, there might be **10,000+ active goroutines**. Printing all of them would scroll endlessly and make debugging impossible because most of them are running the same background workers or HTTP connection pools.
 
 Goroviz groups these thousands of goroutines into **unique clusters** (similar to how `htop` groups processes), showing you only unique stack signatures.
 
 ---
 
-## 🧩 1. The Strategy Interface
+## 1. The Strategy Interface
 Goroviz utilizes a pluggable **Strategy** design pattern. This is defined by the `Strategy` interface in strategy.go
 
 ```go
@@ -26,7 +26,7 @@ By defining this interface, the codebase adheres directly to the **Open-Closed P
 
 ---
 
-## 🔍 2. How the `ExactMatchStrategy` Works
+## 2. How the `ExactMatchStrategy` Works
 
 Right now, Goroviz uses the [ExactMatchStrategy](file:///home/santhosh/Documents/goroviz/internal/group/strategy.go#L26). Here is the step-by-step logic of how it processes goroutines:
 
@@ -65,7 +65,7 @@ Finally, it converts the map back into a list of `Group` structs and sorts them 
 
 ---
 
-## 🎨 Visual Example
+## Visual Example
 
 Suppose you feed Goroviz 3 goroutines:
 1. **Goroutine #1:** `chan receive` $\rightarrow$ `main.worker` $\rightarrow$ `main.main`
@@ -79,3 +79,10 @@ Suppose you feed Goroviz 3 goroutines:
 ### Final Output Groups:
 * **Group 1:** Signature `main.worker -> main.main` (Count: **2**, State: `chan receive`)
 * **Group 2:** Signature `main.printer -> main.main` (Count: **1**, State: `running`)
+
+
+### Steps to Add New Stragegy
+- type PrefixStrategy struct{} //new struct
+- func (p *PrefixStrategy) Group(goroutines []parser.Goroutine) []Group { // your logic here } //fuction follows the interface
+- func NewPrefixStrategy() *PrefixStrategy { return &PrefixStrategy{} } //constructor
+- strategy := group.PrefixStrategy() instead of strategy := group.NewExactMatchStrategy() //cmd/goroviz/main.go/fun analyze
