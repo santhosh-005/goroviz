@@ -142,13 +142,16 @@ main() {
     info "Extracting..."
     tar -xzf "${TMP_DIR}/${ARCHIVE_NAME}" -C "${TMP_DIR}"
 
-    if [ ! -f "${TMP_DIR}/${BINARY_NAME}" ]; then
+    # Find the binary (may be in a subdirectory)
+    EXTRACTED_BIN="$(find "${TMP_DIR}" -name "${BINARY_NAME}" -type f | head -1)"
+
+    if [ -z "${EXTRACTED_BIN}" ]; then
         error "Expected binary '${BINARY_NAME}' not found in the archive."
     fi
 
     # Install the binary
     mkdir -p "${INSTALL_DIR}"
-    mv "${TMP_DIR}/${BINARY_NAME}" "${INSTALL_DIR}/${BINARY_NAME}"
+    mv "${EXTRACTED_BIN}" "${INSTALL_DIR}/${BINARY_NAME}"
     chmod +x "${INSTALL_DIR}/${BINARY_NAME}"
 
     success "Installed to ${INSTALL_DIR}/${BINARY_NAME}"
