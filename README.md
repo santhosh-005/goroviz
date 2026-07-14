@@ -24,6 +24,20 @@ Just point it at your running Go app - Goroviz fetches the goroutine dump, group
 
 ## Installation
 
+### Quick Install (Recommended)
+
+Download the latest pre-built binary for your platform — no Go toolchain required:
+
+```bash
+curl -sSfL https://raw.githubusercontent.com/santhosh-005/goroviz/main/install.sh | sh
+```
+
+This auto-detects your OS and architecture, installs to `~/.local/bin`, and verifies your PATH.
+
+### Go Developers
+
+If you already have Go installed:
+
 ```bash
 go install github.com/santhosh-005/goroviz/cmd/goroviz@latest
 ```
