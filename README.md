@@ -141,3 +141,6 @@ goroviz/
 ## License
 
 [MIT](LICENSE)
+
+<p align="center">⭐ Star the repo to show your support!
+</p>
