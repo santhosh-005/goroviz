@@ -1,8 +1,10 @@
-# Goroviz
-
-A lightweight TUI tool that visualizes goroutine behavior from Go applications using pprof data. 
-
-Just point it at your running Go app - Goroviz fetches the goroutine dump, groups identical stacks, and lets you explore them interactively.
+<div align="center">
+<img width="120" alt="60ae9a1b-d799-4cdb-8c4e-ca147405a390(2)" src="https://github.com/user-attachments/assets/80130efb-290d-450c-be06-80ed63c04e5a" />
+<h1>Goroviz</h1>
+<p>A lightweight TUI for visualizing goroutine behavior from Go applications using pprof data - simply point it at your running app to fetch goroutine dumps, group identical stacks, and explore them interactively.
+</p>
+  <br>
+</div>
 
 ## Walk Through 
 
